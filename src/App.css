@@ -1,38 +1,129 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,300&display=swap');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root {
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 4vw;
+	background-color: lightblue;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+	/* border: 3px solid deepskyblue; */
+	height: 100vh;
+	text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.drum-machine {
+	height: calc(30vw + 0.5vw * 4 + 4vw);
+	/* The inner container looks better with margin-top */
+	/* margin-top: 20vh; */
+	/* margin: auto; */
+	background-color: lightslategray;
+	border: 3px solid darkslategray;
+	border-radius: 4px;
 }
 
-.App-link {
-  color: #61dafb;
+/* It would be also nice to add some media queries for large screens */
+
+@media screen and (max-width: 575px) {
+	.drum-machine {
+		width: 50vw;
+		height: 70vh;
+		/* overflow: scroll; */
+	}
+
+	.title {
+		padding-top: 1vw;
+		font-size: 2.5vw;
+	}
+
+	.display-container {
+		height: 15vh;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+	}
+
+	@media screen and (orientation: landscape) {
+		.drum-machine {
+			height: 85vh;
+		}
+	}
+
+	@media screen and (orientation: portrait) {
+		.drum-machine {
+			height: 40vh;
+		}
+		.display-container {
+			height: 20%;
+		}
+		.title {
+			font-size: 3vw;
+		}
+	}
+	@media screen and (min-height: 900px) {
+		.drum-machine {
+			height: 20vh;
+		}
+	}
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.display-container {
+	/* border: 1px solid yellow; */
 }
+
+.display {
+	background-color: darkslategray;
+	color:cyan;
+	font-size: smaller;
+	text-align: center;
+	margin: auto;
+	border-radius: 3px;
+}
+
+.cb {
+	font-size: 0.8rem;
+	font-style: italic;
+	text-align: center;
+}
+/* Important! Vertical center is relative to the height of the parent */
+.drum-pad-panel {
+	border: 2px solid lightslategray;
+	text-align: center;
+	width: 70%;
+	margin: auto;
+}
+
+.drum-pad {
+	display: inline-block;
+	width: 10vw;
+	height: 10vw;
+	margin: 0.5vw;
+	/* font-style: italic; */
+	padding-top: 0.5vw;
+	border-radius: 3px;
+}
+
+.drum-pad {
+	background-color: lavender;
+	cursor: pointer;
+	border: 1px solid cyan;
+}
+
+.key {
+	display: inline-block;
+	font-weight: 700;
+	/* vertical-align: bottom; */
+	padding-top: 10%;
+}
+
+/* 
+1. Leave the borders and just make them like the surrounding colors, otherwise buttons wrap.
+2. Change the colors to smth more attractive.
+3. Codepen 
+4. Tests */
